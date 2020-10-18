@@ -1,0 +1,7 @@
+public enum DOSAGE_FORM {
+    TABLET,
+    HARD_CAPSULE,
+    SOFT_CAPSULE,
+    SOLUTION,
+    LINIMENT;
+}
