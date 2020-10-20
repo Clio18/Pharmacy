@@ -2,17 +2,22 @@ package model;
 
 public class Drug {
     private String description;
+    private String name;
     private Double price;
     private boolean available;
     public DosageForm dosageForm;
     private String manufacturer;
 
-    public Drug(String description, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
+    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
         this.description = description;
+        this.name = name;
         this.price = price;
         this.available = available;
         this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
+    }
+
+    public Drug() {
     }
 
     public String getDescription() {
@@ -21,6 +26,14 @@ public class Drug {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Double getPrice() {

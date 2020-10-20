@@ -1,54 +1,54 @@
 package userInterface;
 
 public class User {
-    private String Name;
-    private String FamilyName;
-    private String Login;
-    private String Password;
+    private String name;
+    private String familyName;
+    private String login;
+    private String password;
     private String email;
     private String address;
     private String phoneNumber;
 
     public User(String name, String familyName, String login, String password, String email, String address, String phoneNumber) {
-        Name = name;
-        FamilyName = familyName;
-        Login = login;
-        Password = password;
+        this.name = name;
+        this.familyName = familyName;
+        this.login = login;
+        this.password = password;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getFamilyName() {
-        return FamilyName;
+        return familyName;
     }
 
     public void setFamilyName(String familyName) {
-        FamilyName = familyName;
+        this.familyName = familyName;
     }
 
     public String getLogin() {
-        return Login;
+        return login;
     }
 
     public void setLogin(String login) {
-        Login = login;
+        this.login = login;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getEmail() {
