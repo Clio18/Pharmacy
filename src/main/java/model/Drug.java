@@ -1,15 +1,17 @@
+package model;
+
 public class Drug {
     private String description;
     private Double price;
-    private boolean avaliable;
-    public DOSAGE_FORM dosage_form;
+    private boolean available;
+    public DosageForm dosageForm;
     private String manufacturer;
 
-    public Drug(String description, Double price, boolean avaliable, DOSAGE_FORM dosage_form, String manufacturer) {
+    public Drug(String description, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
         this.description = description;
         this.price = price;
-        this.avaliable = avaliable;
-        this.dosage_form = dosage_form;
+        this.available = available;
+        this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
     }
 
@@ -29,20 +31,20 @@ public class Drug {
         this.price = price;
     }
 
-    public boolean isAvaliable() {
-        return avaliable;
+    public boolean isAvailable() {
+        return available;
     }
 
-    public void setAvaliable(boolean avaliable) {
-        this.avaliable = avaliable;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
-    public DOSAGE_FORM getDosage_form() {
-        return dosage_form;
+    public DosageForm getDosageForm() {
+        return dosageForm;
     }
 
-    public void setDosage_form(DOSAGE_FORM dosage_form) {
-        this.dosage_form = dosage_form;
+    public void setDosageForm(DosageForm dosageForm) {
+        this.dosageForm = dosageForm;
     }
 
     public String getManufacturer() {

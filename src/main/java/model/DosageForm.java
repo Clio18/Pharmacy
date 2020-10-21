@@ -1,4 +1,6 @@
-public enum DOSAGE_FORM {
+package model;
+
+public enum DosageForm {
     TABLET,
     HARD_CAPSULE,
     SOFT_CAPSULE,
