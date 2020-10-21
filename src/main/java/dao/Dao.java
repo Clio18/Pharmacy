@@ -1,16 +1,16 @@
 package dao;
 
 import java.util.List;
-import java.util.Optional;
 
-public interface Dao<T> {
-    Optional<T> get(long id);
 
-    List<T> getAll();
+public interface Dao<Drug> {
+    Drug get(double id);
 
-    void save(T t);
+    List <Drug> getAll();
 
-    void update(T t, String[]params);
+    void update(double id);
 
-    void delete(T t);
+    void delete(double id);
+
+    void save (Drug drug);
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Drug {
+public class Drug implements Cloneable {
     private String description;
     private String name;
     private Double price;
@@ -66,5 +66,10 @@ public class Drug {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

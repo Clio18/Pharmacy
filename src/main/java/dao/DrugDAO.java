@@ -4,7 +4,6 @@ import model.Drug;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class DrugDAO implements Dao {
 
@@ -12,56 +11,47 @@ public class DrugDAO implements Dao {
    private List<Drug> pharmacy = new ArrayList<>();
 
     @Override
-    public Optional get(long id) {
-        return Optional.empty();
+    public Drug get(double id) {
+        return null;
     }
 
     @Override
     public List getAll() {
-        //should be checked for null
-        return pharmacy;
+        List<Drug> pharmacyForRequest = new ArrayList<>();
+        for (Drug drug:pharmacy){
+            pharmacyForRequest.add(drug);
+        }
+        return pharmacyForRequest;
+    }
+
+
+    @Override
+    public void update(double id) {
+
+    }
+
+    @Override
+    public void delete(double id) {
+
     }
 
     @Override
     public void save(Object o) {
-        if (o.getClass().getSimpleName().equals("Drug")){
-            pharmacy.add((Drug) o);
-        }
-        //if not - error
 
     }
 
-    @Override
-    public void update(Object o, String[] params) {
-
-    }
-
-    @Override
-    public void delete(Object o) {
-        if (o.getClass().getSimpleName().equals("Drug")){
-            //if pharmacy has o
-            pharmacy.remove(o);
-        }
-        //if not - error
-    }
-
-    public Drug findByName(String name) {
+    public Drug findByName(String name) throws CloneNotSupportedException {
         Drug targetDrug = new Drug();
         for(Drug drug:pharmacy){
             if (drug.getName().equals(name)){
-                targetDrug.setAvailable(drug.isAvailable());
-                targetDrug.setDescription(drug.getDescription());
-                targetDrug.setDosageForm(drug.getDosageForm());
-                targetDrug.setManufacturer(drug.getManufacturer());
-                targetDrug.setName(drug.getName());
-                targetDrug.setPrice(drug.getPrice());
+               targetDrug = (Drug) drug.clone();
             }
         }
         return targetDrug;
 
     }
 
-    public List<Drug> findDrugsByPrice(Double min, double max) {
+    public List<Drug> findDrugsByPrice(double min, double max) {
        List <Drug> targetDrugs = new ArrayList<>();
         for(Drug drug:pharmacy){
             if (drug.getPrice()>min&&drug.getPrice()<max){
