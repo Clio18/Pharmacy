@@ -36,9 +36,10 @@ public class DrugDAO implements Dao {
     }
 
     @Override
-    public void save(Object o) {
+    public void save(Drug drug) {
 
     }
+
 
     public Drug findByName(String name) throws CloneNotSupportedException {
         Drug targetDrug = new Drug();

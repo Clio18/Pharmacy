@@ -1,9 +1,11 @@
 package dao;
 
+import model.Drug;
+
 import java.util.List;
 
 
-public interface Dao<Drug> {
+public interface Dao {
     Drug get(double id);
 
     List <Drug> getAll();
