@@ -7,6 +7,10 @@ import java.util.List;
 
 public class DrugDAO implements Dao {
 
+    public DrugDAO() {
+
+    }
+
     //mock
    private List<Drug> pharmacy = new ArrayList<>();
 
