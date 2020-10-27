@@ -7,14 +7,16 @@ public class Drug implements Cloneable {
     private boolean available;
     public DosageForm dosageForm;
     private String manufacturer;
+    private int id;
 
-    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
+    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer, int id) {
         this.description = description;
         this.name = name;
         this.price = price;
         this.available = available;
         this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
+        this.id = id;
     }
 
     public Drug() {
@@ -66,6 +68,14 @@ public class Drug implements Cloneable {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

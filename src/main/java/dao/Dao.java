@@ -1,18 +1,15 @@
 package dao;
-
-import model.Drug;
-
 import java.util.List;
 
 
-public interface Dao {
-    Drug get(double id);
+public interface Dao<T> {
+    T get(int id) throws CloneNotSupportedException;
 
-    List <Drug> getAll();
+    List <T> getAll();
 
-    void update(double id);
+    void update(T t);
 
-    void delete(double id);
+    void delete(int id);
 
-    void save (Drug drug);
+    void save (T t);
 }
