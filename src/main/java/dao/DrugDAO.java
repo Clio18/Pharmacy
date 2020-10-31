@@ -4,13 +4,24 @@ import model.Drug;
 import source.MockDrugBase;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-    MockDrugBase mockDrugBase = new MockDrugBase();
+   private MockDrugBase mockDrugBase;
 
-    public DrugDAO() {
+    public DrugDAO(List<Drug> drugs) {
+        mockDrugBase = new MockDrugBase();
+        this.mockDrugBase.setPharmacy(drugs);
 
+    }
+
+    public MockDrugBase getMockDrugBase() {
+        return mockDrugBase;
+    }
+
+    public void setMockDrugBase(MockDrugBase mockDrugBase) {
+        this.mockDrugBase = mockDrugBase;
     }
 
     @Override
@@ -51,9 +62,11 @@ public class DrugDAO implements Dao<Drug> {
 
     @Override
     public void delete(int id) {
-        for(Drug drug:mockDrugBase.getPharmacy()){
-            if (drug.getId()==id){
-                mockDrugBase.getPharmacy().remove(drug);
+        Iterator<Drug>iterator = mockDrugBase.getPharmacy().iterator();
+        while (iterator.hasNext()){
+            int idForRemove = iterator.next().getId();
+            if(idForRemove==id){
+                iterator.remove();
             }
         }
     }

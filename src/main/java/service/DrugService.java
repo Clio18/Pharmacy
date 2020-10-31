@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DrugService {
 
-private DrugDAO drugDAO = new DrugDAO();
+private DrugDAO drugDAO;
 
 
 public List<Drug> getAll(){

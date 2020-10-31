@@ -17,4 +17,8 @@ public class MockDrugBase {
     public List<Drug> getPharmacy() {
         return pharmacy;
     }
+
+    public void setPharmacy(List<Drug> pharmacy) {
+        this.pharmacy = pharmacy;
+    }
 }
