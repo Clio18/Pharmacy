@@ -21,10 +21,7 @@ public class DrugDAOTest {
     Drug drug1 = new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA", 1);
     Drug drug2 = new Drug("B", "BB", 2.1, true, DosageForm.LINIMENT, "BBB", 2);
     Drug drug3 = new Drug("C", "CC", 3.1, true, DosageForm.HARD_CAPSULE, "CCC", 3);
-//    List<Drug> drugList = new ArrayList<>();
-//        drugList.add(drug1);
-//        drugList.add(drug2);
-//        drugList.add(drug3);
+
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
