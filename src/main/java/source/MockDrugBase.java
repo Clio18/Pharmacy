@@ -9,16 +9,12 @@ import java.util.List;
 public class MockDrugBase {
     private List<Drug> pharmacy;
 
-    public MockDrugBase() {
-        this.pharmacy = new ArrayList<>();
-        pharmacy.add(new Drug("q", "w", 10.1, true, DosageForm.HARD_CAPSULE, "r", 1));
+    public MockDrugBase(List<Drug> pharmacy) {
+        this.pharmacy = pharmacy;
     }
 
     public List<Drug> getPharmacy() {
-        return pharmacy;
+       return pharmacy;
     }
 
-    public void setPharmacy(List<Drug> pharmacy) {
-        this.pharmacy = pharmacy;
-    }
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import exception.DrugNotFoundException;
 import model.Drug;
 import source.MockDrugBase;
 
@@ -8,26 +9,24 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-   private MockDrugBase mockDrugBase;
+   private MockDrugBase drugsStorage;
 
     public DrugDAO(List<Drug> drugs) {
-        mockDrugBase = new MockDrugBase();
-        this.mockDrugBase.setPharmacy(drugs);
-
+        drugsStorage = new MockDrugBase(drugs);
     }
 
-    public MockDrugBase getMockDrugBase() {
-        return mockDrugBase;
+    public MockDrugBase getDrugsStorage() {
+        return drugsStorage;
     }
 
-    public void setMockDrugBase(MockDrugBase mockDrugBase) {
-        this.mockDrugBase = mockDrugBase;
+    public void setDrugsStorage(MockDrugBase drugsStorage) {
+        this.drugsStorage = drugsStorage;
     }
 
     @Override
-    public Drug get(int id) throws CloneNotSupportedException {
-        Drug targetDrug = new Drug();
-        for(Drug drug:mockDrugBase.getPharmacy()){
+    public Drug findById(int id) throws CloneNotSupportedException {
+        Drug targetDrug = null;
+        for(Drug drug: drugsStorage.getPharmacy()){
             if (drug.getId()==id){
                 targetDrug = (Drug) drug.clone();
             }
@@ -38,7 +37,7 @@ public class DrugDAO implements Dao<Drug> {
     @Override
     public List getAll() {
         List<Drug> pharmacyForRequest = new ArrayList<>();
-        for (Drug drug:mockDrugBase.getPharmacy()){
+        for (Drug drug: drugsStorage.getPharmacy()){
             pharmacyForRequest.add(drug);
         }
         return pharmacyForRequest;
@@ -46,23 +45,40 @@ public class DrugDAO implements Dao<Drug> {
 
 
     @Override
-    public void update(Drug drug) {
-        for (Drug oldDrug: mockDrugBase.getPharmacy()){
-            if (drug.getId()==oldDrug.getId()){
-                oldDrug.setName(drug.getName());
-                oldDrug.setPrice(drug.getPrice());
-                oldDrug.setManufacturer(drug.getManufacturer());
-                oldDrug.setDosageForm(drug.getDosageForm());
-                oldDrug.setDescription(drug.getDescription());
-                oldDrug.setAvailable(drug.isAvailable());
+    public void update(Drug drug) throws DrugNotFoundException {
+        Drug drugForUpdate = null;
+        for (Drug d: drugsStorage.getPharmacy()){
+            if (drug.getId()==d.getId()){
+                d.setName(drug.getName());
+                d.setPrice(drug.getPrice());
+                d.setManufacturer(drug.getManufacturer());
+                d.setDosageForm(drug.getDosageForm());
+                d.setDescription(drug.getDescription());
+                d.setAvailable(drug.isAvailable());
+                drugForUpdate = d;
             }
         }
+        if (drugForUpdate==null){
+            throw new DrugNotFoundException();
+        }
+//        for (Drug oldDrug: drugsStorage.getPharmacy()){
+//            if (drug.getId()==oldDrug.getId()){
+//                oldDrug.setName(drug.getName());
+//                oldDrug.setPrice(drug.getPrice());
+//                oldDrug.setManufacturer(drug.getManufacturer());
+//                oldDrug.setDosageForm(drug.getDosageForm());
+//                oldDrug.setDescription(drug.getDescription());
+//                oldDrug.setAvailable(drug.isAvailable());
+//            }else {
+//                throw new DrugNotFoundException();
+//            }
+//        }
 
     }
 
     @Override
     public void delete(int id) {
-        Iterator<Drug>iterator = mockDrugBase.getPharmacy().iterator();
+        Iterator<Drug>iterator = drugsStorage.getPharmacy().iterator();
         while (iterator.hasNext()){
             int idForRemove = iterator.next().getId();
             if(idForRemove==id){
@@ -73,13 +89,13 @@ public class DrugDAO implements Dao<Drug> {
 
     @Override
     public void save(Drug drug) {
-        mockDrugBase.getPharmacy().add(drug);
+        drugsStorage.getPharmacy().add(drug);
 
     }
 
     public Drug findByName(String name) throws CloneNotSupportedException {
         Drug targetDrug = new Drug();
-        for(Drug drug:mockDrugBase.getPharmacy()){
+        for(Drug drug: drugsStorage.getPharmacy()){
             if (drug.getName().equals(name)){
                targetDrug = (Drug) drug.clone();
             }
@@ -90,7 +106,7 @@ public class DrugDAO implements Dao<Drug> {
 
     public List<Drug> findDrugsByPrice(double min, double max) {
        List <Drug> targetDrugs = new ArrayList<>();
-        for(Drug drug:mockDrugBase.getPharmacy()){
+        for(Drug drug: drugsStorage.getPharmacy()){
             if (drug.getPrice()>min&&drug.getPrice()<max){
               targetDrugs.add(drug);
             }
