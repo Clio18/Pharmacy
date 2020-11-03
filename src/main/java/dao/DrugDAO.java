@@ -15,20 +15,16 @@ public class DrugDAO implements Dao<Drug> {
         drugsStorage = new MockDrugBase(drugs);
     }
 
-    public MockDrugBase getDrugsStorage() {
-        return drugsStorage;
-    }
-
-    public void setDrugsStorage(MockDrugBase drugsStorage) {
-        this.drugsStorage = drugsStorage;
-    }
-
     @Override
-    public Drug findById(int id) throws CloneNotSupportedException {
+    public Drug findById(int id) {
         Drug targetDrug = null;
         for(Drug drug: drugsStorage.getPharmacy()){
             if (drug.getId()==id){
-                targetDrug = (Drug) drug.clone();
+                try {
+                    targetDrug = (Drug) drug.clone();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return targetDrug;
@@ -45,59 +41,65 @@ public class DrugDAO implements Dao<Drug> {
 
 
     @Override
-    public void update(Drug drug) throws DrugNotFoundException {
+    public void update(Drug drug) {
         Drug drugForUpdate = null;
         for (Drug d: drugsStorage.getPharmacy()){
             if (drug.getId()==d.getId()){
-                d.setName(drug.getName());
-                d.setPrice(drug.getPrice());
-                d.setManufacturer(drug.getManufacturer());
-                d.setDosageForm(drug.getDosageForm());
-                d.setDescription(drug.getDescription());
-                d.setAvailable(drug.isAvailable());
                 drugForUpdate = d;
             }
         }
-        if (drugForUpdate==null){
-            throw new DrugNotFoundException();
-        }
-//        for (Drug oldDrug: drugsStorage.getPharmacy()){
-//            if (drug.getId()==oldDrug.getId()){
-//                oldDrug.setName(drug.getName());
-//                oldDrug.setPrice(drug.getPrice());
-//                oldDrug.setManufacturer(drug.getManufacturer());
-//                oldDrug.setDosageForm(drug.getDosageForm());
-//                oldDrug.setDescription(drug.getDescription());
-//                oldDrug.setAvailable(drug.isAvailable());
-//            }else {
-//                throw new DrugNotFoundException();
-//            }
-//        }
 
+        if (drugForUpdate!=null){
+            drugForUpdate.setName(drug.getName());
+            drugForUpdate.setPrice(drug.getPrice());
+            drugForUpdate.setManufacturer(drug.getManufacturer());
+            drugForUpdate.setDosageForm(drug.getDosageForm());
+            drugForUpdate.setDescription(drug.getDescription());
+            drugForUpdate.setAvailable(drug.isAvailable());
+        } else try {
+            throw new DrugNotFoundException();
+        } catch (DrugNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void delete(int id) {
+    public boolean delete(int id) {
+        boolean flag = false;
         Iterator<Drug>iterator = drugsStorage.getPharmacy().iterator();
         while (iterator.hasNext()){
             int idForRemove = iterator.next().getId();
             if(idForRemove==id){
                 iterator.remove();
+                flag = true;
             }
         }
+        return flag;
     }
 
     @Override
-    public void save(Drug drug) {
+    public boolean save(Drug drug) {
+        boolean flag = false;
+        for (Drug d : drugsStorage.getPharmacy()){
+            if(d.getId()==drug.getId()){
+                return flag;
+            }
+        }
         drugsStorage.getPharmacy().add(drug);
+        flag = true;
+        return flag;
 
     }
 
-    public Drug findByName(String name) throws CloneNotSupportedException {
+    public Drug findByName(String name) {
         Drug targetDrug = new Drug();
         for(Drug drug: drugsStorage.getPharmacy()){
             if (drug.getName().equals(name)){
-               targetDrug = (Drug) drug.clone();
+                try {
+                    targetDrug = (Drug) drug.clone();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return targetDrug;

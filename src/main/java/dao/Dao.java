@@ -11,7 +11,7 @@ public interface Dao<T> {
 
     void update(T t) throws DrugNotFoundException;
 
-    void delete(int id);
+    boolean delete(int id);
 
-    void save (T t);
+    boolean save (T t);
 }

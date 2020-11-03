@@ -34,11 +34,15 @@ public class DrugDAOTest {
     @Before
     public void setUp() {
         System.out.println("Code executes before each test method");
+        drugDAO = new DrugDAO(helperForGetList());
+    }
+
+    private List<Drug> helperForGetList() {
         List<Drug> drugList = new ArrayList<>();
         drugList.add(drug1);
         drugList.add(drug2);
         drugList.add(drug3);
-        drugDAO = new DrugDAO(drugList);
+        return drugList;
     }
 
     @Test
@@ -50,40 +54,48 @@ public class DrugDAOTest {
 
     @Test
     public void whenDeleteDrugById() {
+        drugDAO = new DrugDAO(helperForGetList());
 
-        drugDAO.delete(100);
-        assertThat(drugDAO.getDrugsStorage().getPharmacy().size(), is(3));
+        boolean result = drugDAO.delete(100);
+        assertThat(drugDAO.getAll().size(), is(3));
+        assertEquals(result, false);
 
-        drugDAO.delete(1);
-        assertThat(drugDAO.getDrugsStorage().getPharmacy().size(), is(2));
+        boolean result1 = drugDAO.delete(1);
+        assertThat(drugDAO.getAll().size(), is(2));
+        assertEquals(result1, true);
 
     }
 
     @Test
-    public void whenFindDrugById() throws CloneNotSupportedException {
+    public void whenFindDrugById() {
         assertEquals(drugDAO.findById(1), drug1);
         assertEquals(drugDAO.findById(900), null);
+
+        boolean result = drugDAO.save(new Drug("Vitamin", "Vitamin", 1.1, true, DosageForm.HARD_CAPSULE, "AAA", 1));
+        assertEquals(drugDAO.findById(1), drug1);
+        assertEquals(result, false);
     }
 
 
     @Test
-    public void whenUpdateDrug() throws CloneNotSupportedException, DrugNotFoundException {
+    public void whenUpdateDrug() {
         Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz", 1);
         drugDAO.update(updatedDrug);
         assertEquals(updatedDrug, drugDAO.findById(1));
-
-        Drug updatedDrug2 = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz", 100);
-        try {
-            drugDAO.update(updatedDrug2);
-        } catch (Exception e){
-            assertEquals(e.getMessage(), new DrugNotFoundException().getMessage());
-        }
-
-
     }
 
     @Test
-    public void whenFindDrugByName() throws CloneNotSupportedException {
+    public void whenUpdateDrugException() {
+        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz", 100);
+        try {
+            drugDAO.update(updatedDrug);
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), new DrugNotFoundException().getMessage());
+        }
+    }
+
+    @Test
+    public void whenFindDrugByName() {
         assertEquals(drugDAO.findByName("AA"), drug1);
     }
 
@@ -94,7 +106,7 @@ public class DrugDAOTest {
 
     @Test
     public void whenFindByPrice() {
-        List <Drug> found = drugDAO.findDrugsByPrice(1.0, 2.0);
+        List<Drug> found = drugDAO.findDrugsByPrice(1.0, 2.0);
         assertThat(found.size(), is(1));
     }
 }
