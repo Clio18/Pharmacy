@@ -1,15 +1,17 @@
 package dao;
+import exception.DrugNotFoundException;
+
 import java.util.List;
 
 
 public interface Dao<T> {
-    T get(int id) throws CloneNotSupportedException;
+    T findById(int id) throws CloneNotSupportedException;
 
     List <T> getAll();
 
-    void update(T t);
+    void update(T t) throws DrugNotFoundException;
 
-    void delete(int id);
+    boolean delete(int id);
 
-    void save (T t);
+    boolean save (T t);
 }

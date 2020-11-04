@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Drug implements Cloneable {
     private String description;
     private String name;
@@ -9,14 +11,16 @@ public class Drug implements Cloneable {
     private String manufacturer;
     private int id;
 
-    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer, int id) {
+
+    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
+
         this.description = description;
         this.name = name;
         this.price = price;
         this.available = available;
         this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
-        this.id = id;
+        this.id = 0;
     }
 
     public Drug() {
@@ -81,5 +85,25 @@ public class Drug implements Cloneable {
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Drug drug = (Drug) o;
+        return isAvailable() == drug.isAvailable() &&
+                getId() == drug.getId() &&
+                Objects.equals(getDescription(), drug.getDescription()) &&
+                Objects.equals(getName(), drug.getName()) &&
+                Objects.equals(getPrice(), drug.getPrice()) &&
+                getDosageForm() == drug.getDosageForm() &&
+                Objects.equals(getManufacturer(), drug.getManufacturer());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getDescription(), getName(), getPrice(), isAvailable(), getDosageForm(), getManufacturer(), getId());
     }
 }
