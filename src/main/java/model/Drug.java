@@ -11,14 +11,16 @@ public class Drug implements Cloneable {
     private String manufacturer;
     private int id;
 
-    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer, int id) {
+
+    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
+
         this.description = description;
         this.name = name;
         this.price = price;
         this.available = available;
         this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
-        this.id = id;
+        this.id = 0;
     }
 
     public Drug() {

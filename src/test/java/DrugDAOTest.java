@@ -18,9 +18,10 @@ public class DrugDAOTest {
 
     private DrugDAO drugDAO;
 
-    Drug drug1 = new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA", 1);
-    Drug drug2 = new Drug("B", "BB", 2.1, true, DosageForm.LINIMENT, "BBB", 2);
-    Drug drug3 = new Drug("C", "CC", 3.1, true, DosageForm.HARD_CAPSULE, "CCC", 3);
+    Drug drug1 = new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA");
+    Drug drug2 = new Drug("B", "BB", 2.1, true, DosageForm.LINIMENT, "BBB");
+    Drug drug3 = new Drug("C", "CC", 3.1, true, DosageForm.HARD_CAPSULE, "CCC");
+
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -34,27 +35,29 @@ public class DrugDAOTest {
     @Before
     public void setUp() {
         System.out.println("Code executes before each test method");
-        drugDAO = new DrugDAO(helperForGetList());
+        //drugDAO = new DrugDAO(helperForGetList());
+        drugDAO.save(drug1);
+        drugDAO.save(drug2);
+        drugDAO.save(drug3);
     }
 
-    private List<Drug> helperForGetList() {
-        List<Drug> drugList = new ArrayList<>();
-        drugList.add(drug1);
-        drugList.add(drug2);
-        drugList.add(drug3);
-        return drugList;
-    }
+//    private List<Drug> helperForGetList() {
+//        List<Drug> drugList = new ArrayList<>();
+//        drugList.add(drug1);
+//        drugList.add(drug2);
+//        drugList.add(drug3);
+//        return drugList;
+//    }
 
     @Test
     public void whenAddNewDrug() throws Exception {
         assertThat(drugDAO.getAll().size(), is(3));
-        drugDAO.save(new Drug("D", "DD", 4.1, true, DosageForm.HARD_CAPSULE, "DDD", 4));
+        drugDAO.save(new Drug("D", "DD", 4.1, true, DosageForm.HARD_CAPSULE, "DDD"));
         assertThat(drugDAO.getAll().size(), is(4));
     }
 
     @Test
     public void whenDeleteDrugById() {
-        drugDAO = new DrugDAO(helperForGetList());
 
         boolean result = drugDAO.delete(100);
         assertThat(drugDAO.getAll().size(), is(3));
@@ -68,25 +71,24 @@ public class DrugDAOTest {
 
     @Test
     public void whenFindDrugById() {
-        assertEquals(drugDAO.findById(1), drug1);
+        assertEquals(drugDAO.findById(0).getName(), drug1.getName());
         assertEquals(drugDAO.findById(900), null);
-
-        boolean result = drugDAO.save(new Drug("Vitamin", "Vitamin", 1.1, true, DosageForm.HARD_CAPSULE, "AAA", 1));
-        assertEquals(drugDAO.findById(1), drug1);
-        assertEquals(result, false);
     }
 
 
     @Test
     public void whenUpdateDrug() {
-        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz", 1);
+        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz");
         drugDAO.update(updatedDrug);
-        assertEquals(updatedDrug, drugDAO.findById(1));
+
+
+        assertEquals(updatedDrug.getName(), drugDAO.findById(1).getName());
+        assertEquals(updatedDrug.getDescription(), drugDAO.findById(1).getDescription());
     }
 
     @Test
     public void whenUpdateDrugException() {
-        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz", 100);
+        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz");
         try {
             drugDAO.update(updatedDrug);
         } catch (Exception e) {
