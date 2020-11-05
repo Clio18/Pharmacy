@@ -9,31 +9,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-    private MockDrugBase drugsStorage;
+    private MockDrugBase drugsStorage = new MockDrugBase(new ArrayList<>());
     static int counter = 0;
 
-    public DrugDAO(List<Drug> drugs) {
-        drugsStorage = new MockDrugBase(drugs);
+    public DrugDAO() {
     }
 
     @Override
-    public boolean save(Drug drug) {
-        boolean flag = false;
-        if (drugsStorage.getPharmacy().isEmpty()){
-            drugsStorage.getPharmacy().add(drug);
-        } else {
-            for (Drug d : drugsStorage.getPharmacy()) {
-                if (d.getId() == drug.getId()) {
-                    return flag;
-                }
-            }
-            counter++;
-            drug.setId(counter);
-            drugsStorage.getPharmacy().add(drug);
-        }
-        flag = true;
-        return flag;
-
+    public Drug save(Drug drug) {
+        counter++;
+        drug.setId(counter);
+        drugsStorage.getPharmacy().add(drug);
+        return drug;
     }
 
     @Override
