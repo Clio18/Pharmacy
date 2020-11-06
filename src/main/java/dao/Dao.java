@@ -13,5 +13,5 @@ public interface Dao<T> {
 
     boolean delete(int id);
 
-    boolean save (T t);
+    T save (T t);
 }

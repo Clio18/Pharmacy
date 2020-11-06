@@ -1,6 +1,7 @@
 package dao;
 
 import exception.DrugNotFoundException;
+import exception.DrugNotSavedException;
 import model.Drug;
 import source.MockDrugBase;
 
@@ -9,31 +10,28 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-    private MockDrugBase drugsStorage;
+    public MockDrugBase drugsStorage = new MockDrugBase(new ArrayList<>());
     static int counter = 0;
 
-    public DrugDAO(List<Drug> drugs) {
-        drugsStorage = new MockDrugBase(drugs);
+    public DrugDAO() {
     }
 
     @Override
-    public boolean save(Drug drug) {
-        boolean flag = false;
-        if (drugsStorage.getPharmacy().isEmpty()){
-            drugsStorage.getPharmacy().add(drug);
+    public Drug save(Drug drug) {
+        Drug resultDrug = null;
+        if (drug == null) {
+            throw new DrugNotSavedException();
         } else {
-            for (Drug d : drugsStorage.getPharmacy()) {
-                if (d.getId() == drug.getId()) {
-                    return flag;
-                }
-            }
             counter++;
             drug.setId(counter);
             drugsStorage.getPharmacy().add(drug);
+            try {
+                resultDrug = (Drug) drug.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
+            return resultDrug;
         }
-        flag = true;
-        return flag;
-
     }
 
     @Override
@@ -78,11 +76,7 @@ public class DrugDAO implements Dao<Drug> {
             drugForUpdate.setDosageForm(drug.getDosageForm());
             drugForUpdate.setDescription(drug.getDescription());
             drugForUpdate.setAvailable(drug.isAvailable());
-        } else try {
-            throw new DrugNotFoundException();
-        } catch (DrugNotFoundException e) {
-            e.printStackTrace();
-        }
+        } else throw new DrugNotFoundException();
     }
 
     @Override
