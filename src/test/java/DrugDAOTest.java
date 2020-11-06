@@ -1,5 +1,6 @@
 import dao.DrugDAO;
 import exception.DrugNotFoundException;
+import exception.DrugNotSavedException;
 import model.DosageForm;
 import model.Drug;
 import org.junit.*;
@@ -34,10 +35,12 @@ public class DrugDAOTest {
     }
 
 
-     @Test
+    @Test
     public void whenReturnAll() {
         drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-         assertEquals(drugDAO.getAll().size(), 1);
+        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        assertEquals(drugDAO.getAll().size(), 3);
     }
 
     @Test
@@ -55,6 +58,16 @@ public class DrugDAOTest {
         assertThat(drugDAO.getAll().size(), is(2));
     }
 
+    @Test
+    public void whenAddNewDrugException() {
+        Drug drug = null;
+        try {
+            drugDAO.save(drug);
+        } catch (Exception e) {
+            assertEquals(e.getMessage(), new DrugNotSavedException().getMessage());
+        }
+    }
+
 
     @Test
     public void whenDeleteDrugById() {
@@ -70,15 +83,10 @@ public class DrugDAOTest {
     @Test
     public void whenUpdateDrug() {
         Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-        Drug saved2 = drugDAO.save(new Drug("Ann", "AAnnn", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
         Drug drugForUpdate = drugDAO.findByName(saved.getName());
         drugForUpdate.setName("Ola");
         drugDAO.update(drugForUpdate);
         assertEquals(drugDAO.findById(saved.getId()).getName(), drugForUpdate.getName());
-        assertFalse(drugDAO.findById(saved.getId()).getName().equals(saved2.getName()));
-        drugDAO.update(saved2);
-        assertEquals(drugDAO.findById(saved2.getId()).getName(), saved2.getName());
-
     }
 
     @Test
@@ -98,11 +106,10 @@ public class DrugDAOTest {
     }
 
 
-
     @Test
     public void whenFindByPrice() {
-        Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-        Drug saved2 = drugDAO.save(new Drug("Ann", "AAnnn", 1.5, true, DosageForm.HARD_CAPSULE, "AAA"));
+        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        drugDAO.save(new Drug("Ann", "AAnnn", 1.5, true, DosageForm.HARD_CAPSULE, "AAA"));
         List<Drug> found = drugDAO.findDrugsByPrice(1.0, 2.0);
         assertThat(found.size(), is(2));
     }

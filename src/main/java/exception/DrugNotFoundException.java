@@ -1,6 +1,6 @@
 package exception;
 
-public class DrugNotFoundException extends Exception {
+public class DrugNotFoundException extends RuntimeException {
 
     @Override
     public String getMessage() {
