@@ -4,8 +4,8 @@ import exception.DrugNotFoundException;
 import java.util.List;
 
 
-public interface Dao<T> {
-    T findById(int id) throws CloneNotSupportedException;
+public interface Dao<T extends Cloneable> {
+    T findById(int id);
 
     List <T> getAll();
 

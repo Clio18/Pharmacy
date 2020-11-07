@@ -3,58 +3,57 @@ package dao;
 import exception.DrugNotFoundException;
 import exception.DrugNotSavedException;
 import model.Drug;
-import source.MockDrugBase;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-    public MockDrugBase drugsStorage = new MockDrugBase(new ArrayList<>());
-    static int counter = 0;
+     private List<Drug> drugList = new ArrayList<>();
+    private static int counter = 0;
 
     public DrugDAO() {
     }
 
     @Override
     public Drug save(Drug drug) {
-        Drug resultDrug = null;
         if (drug == null) {
             throw new DrugNotSavedException();
-        } else {
-            counter++;
-            drug.setId(counter);
-            drugsStorage.getPharmacy().add(drug);
-            try {
-                resultDrug = (Drug) drug.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-            }
-            return resultDrug;
         }
+        counter++;
+        drug.setId(counter);
+        drugList.add(drug);
+        try {
+            return (Drug) drug.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public Drug findById(int id) {
-        Drug targetDrug = null;
-
-        for (Drug drug : drugsStorage.getPharmacy()) {
+        for (Drug drug : drugList) {
             if (drug.getId() == id) {
                 try {
-                    targetDrug = (Drug) drug.clone();
+                    return (Drug) drug.clone();
                 } catch (CloneNotSupportedException e) {
                     e.printStackTrace();
                 }
             }
         }
-        return targetDrug;
+        return null;
     }
 
     @Override
     public List<Drug> getAll() {
         List<Drug> pharmacyForRequest = new ArrayList<>();
-        for (Drug drug : drugsStorage.getPharmacy()) {
-            pharmacyForRequest.add(drug);
+        for (Drug drug : drugList) {
+            try {
+                pharmacyForRequest.add((Drug) drug.clone());
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
         }
         return pharmacyForRequest;
     }
@@ -63,26 +62,27 @@ public class DrugDAO implements Dao<Drug> {
     @Override
     public void update(Drug drug) {
         Drug drugForUpdate = null;
-        for (Drug d : drugsStorage.getPharmacy()) {
+        for (Drug d : drugList) {
             if (d.getId() == drug.getId()) {
                 drugForUpdate = d;
             }
         }
 
-        if (drugForUpdate != null) {
-            drugForUpdate.setName(drug.getName());
-            drugForUpdate.setPrice(drug.getPrice());
-            drugForUpdate.setManufacturer(drug.getManufacturer());
-            drugForUpdate.setDosageForm(drug.getDosageForm());
-            drugForUpdate.setDescription(drug.getDescription());
-            drugForUpdate.setAvailable(drug.isAvailable());
-        } else throw new DrugNotFoundException();
+        if (drugForUpdate == null) {
+            throw new DrugNotFoundException();
+        }
+        drugForUpdate.setName(drug.getName());
+        drugForUpdate.setPrice(drug.getPrice());
+        drugForUpdate.setManufacturer(drug.getManufacturer());
+        drugForUpdate.setDosageForm(drug.getDosageForm());
+        drugForUpdate.setDescription(drug.getDescription());
+        drugForUpdate.setAvailable(drug.isAvailable());
     }
 
     @Override
     public boolean delete(int id) {
         boolean flag = false;
-        Iterator<Drug> iterator = drugsStorage.getPharmacy().iterator();
+        Iterator<Drug> iterator = drugList.iterator();
         while (iterator.hasNext()) {
             int idForRemove = iterator.next().getId();
             if (idForRemove == id) {
@@ -96,7 +96,7 @@ public class DrugDAO implements Dao<Drug> {
 
     public Drug findByName(String name) {
         Drug targetDrug = new Drug();
-        for (Drug drug : drugsStorage.getPharmacy()) {
+        for (Drug drug : drugList) {
             if (drug.getName().equals(name)) {
                 try {
                     targetDrug = (Drug) drug.clone();
@@ -111,7 +111,7 @@ public class DrugDAO implements Dao<Drug> {
 
     public List<Drug> findDrugsByPrice(double min, double max) {
         List<Drug> targetDrugs = new ArrayList<>();
-        for (Drug drug : drugsStorage.getPharmacy()) {
+        for (Drug drug : drugList) {
             if (drug.getPrice() > min && drug.getPrice() < max) {
                 targetDrugs.add(drug);
             }

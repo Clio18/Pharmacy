@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Order {
 
-   // private List<Drug> orderedDrugs;
     private Bucket bucket;
     private User user;
 
@@ -30,5 +29,13 @@ public class Order {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "bucket=" + bucket +
+                ", user=" + user +
+                '}';
     }
 }

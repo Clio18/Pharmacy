@@ -1,6 +1,6 @@
 package userInterface;
 
-public class User {
+public class User implements Cloneable {
     private String name;
     private String familyName;
     private String login;
@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String address;
     private String phoneNumber;
+    private int id;
 
     public User(String name, String familyName, String login, String password, String email, String address, String phoneNumber) {
         this.name = name;
@@ -17,6 +18,10 @@ public class User {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.id = 0;
+    }
+
+    public User() {
     }
 
     public String getName() {
@@ -73,5 +78,32 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
