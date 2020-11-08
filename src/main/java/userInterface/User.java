@@ -1,5 +1,7 @@
 package userInterface;
 
+import java.util.Objects;
+
 public class User implements Cloneable {
     private String name;
     private String familyName;
@@ -105,5 +107,26 @@ public class User implements Cloneable {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return getId() == user.getId() &&
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getFamilyName(), user.getFamilyName()) &&
+                Objects.equals(getLogin(), user.getLogin()) &&
+                Objects.equals(getPassword(), user.getPassword()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getAddress(), user.getAddress()) &&
+                Objects.equals(getPhoneNumber(), user.getPhoneNumber());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getName(), getFamilyName(), getLogin(), getPassword(), getEmail(), getAddress(), getPhoneNumber(), getId());
     }
 }

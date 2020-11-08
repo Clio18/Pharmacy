@@ -1,9 +1,6 @@
 package model;
-
 import userInterface.Bucket;
 import userInterface.User;
-
-import java.util.List;
 
 public class Order {
 

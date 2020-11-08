@@ -19,4 +19,8 @@ public class UserService {
     public void save(User user) {
         userDAO.save(user);
     }
+
+    public User findUserByLoginAndPassword(String login, String password) {
+       return userDAO.findUserByLoginAndPassword(login,password);
+    }
 }

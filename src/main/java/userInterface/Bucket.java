@@ -1,11 +1,10 @@
 package userInterface;
-
 import model.Drug;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bucket {
-    private List<Drug> drugs;
+    private List<Drug> drugs = new ArrayList<>();
 
     public Bucket() {
     }

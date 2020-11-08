@@ -1,8 +1,6 @@
 package dao;
 import exception.DrugNotFoundException;
-
 import java.util.List;
-
 
 public interface Dao<T extends Cloneable> {
     T findById(int id);

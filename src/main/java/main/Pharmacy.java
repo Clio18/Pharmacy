@@ -1,14 +1,10 @@
 package main;
-
 import model.Drug;
 import model.Order;
 import service.DrugService;
 import service.UserService;
 import userInterface.Bucket;
 import userInterface.User;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Pharmacy {
     private DrugService drugService = new DrugService();
@@ -27,9 +23,7 @@ public class Pharmacy {
     }
 
     public void addDrugToBucket(Drug drug){
-        List<Drug> drugList = new ArrayList<>();
-        drugList.add(drug);
-        bucket.setDrugs(drugList);
+       bucket.getDrugs().add(drug);
     }
 
     public Bucket getBucket(){
@@ -45,11 +39,15 @@ public class Pharmacy {
         return userService.findDrugById(i);
     }
 
-    public void addDrugToBase(Drug drug) {
+    public void createDrug(Drug drug) {
         drugService.save(drug);
     }
 
     public void addUser(User user) {
         userService.save(user);
+    }
+
+    public User findUserByLoginAndPassword(String login, String password) {
+       return userService.findUserByLoginAndPassword(login, password);
     }
 }

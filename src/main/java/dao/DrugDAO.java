@@ -1,15 +1,12 @@
 package dao;
-
 import exception.DrugNotFoundException;
-import exception.DrugNotSavedException;
 import model.Drug;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class DrugDAO implements Dao<Drug> {
-     private List<Drug> drugList = new ArrayList<>();
+    private List<Drug> drugList = new ArrayList<>();
     private static int counter = 0;
 
     public DrugDAO() {
@@ -18,7 +15,7 @@ public class DrugDAO implements Dao<Drug> {
     @Override
     public Drug save(Drug drug) {
         if (drug == null) {
-            throw new DrugNotSavedException();
+            throw new IllegalArgumentException();
         }
         counter++;
         drug.setId(counter);
@@ -95,17 +92,17 @@ public class DrugDAO implements Dao<Drug> {
 
 
     public Drug findByName(String name) {
-        Drug targetDrug = new Drug();
+
         for (Drug drug : drugList) {
             if (drug.getName().equals(name)) {
                 try {
-                    targetDrug = (Drug) drug.clone();
+                    return  (Drug) drug.clone();
                 } catch (CloneNotSupportedException e) {
                     e.printStackTrace();
                 }
             }
         }
-        return targetDrug;
+        return null;
 
     }
 

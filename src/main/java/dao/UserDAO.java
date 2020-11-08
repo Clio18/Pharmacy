@@ -1,7 +1,5 @@
 package dao;
-
-import exception.DrugNotFoundException;
-import exception.DrugNotSavedException;
+import exception.UserNotFoundException;
 import userInterface.User;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +15,7 @@ public class UserDAO implements Dao<User> {
     @Override
     public User save(User user) {
         if (user == null) {
-            throw new DrugNotSavedException();
+            throw new IllegalArgumentException();
         }
         counter++;
         user.setId(counter);
@@ -68,7 +66,7 @@ public class UserDAO implements Dao<User> {
         }
 
         if (userForUpdate == null) {
-            throw new DrugNotFoundException();
+            throw new UserNotFoundException();
         }
         userForUpdate.setName(user.getName());
         userForUpdate.setFamilyName(user.getFamilyName());
@@ -95,17 +93,29 @@ public class UserDAO implements Dao<User> {
 
 
     public User findByName(String name) {
-        User targetUser = new User();
-        for (User user : userList) {
+         for (User user : userList) {
             if (user.getName().equals(name)) {
                 try {
-                    targetUser = (User) user.clone();
+                    return  (User) user.clone();
                 } catch (CloneNotSupportedException e) {
                     e.printStackTrace();
                 }
             }
         }
-        return targetUser;
+        return null;
 
+    }
+
+    public User findUserByLoginAndPassword(String login, String password) {
+        for (User user:userList){
+            if (user.getLogin().equals(login)&&user.getPassword().equals(password)){
+                try {
+                    return (User) user.clone();
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
     }
 }
