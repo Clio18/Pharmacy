@@ -1,20 +1,15 @@
 import dao.DrugDAO;
 import exception.DrugNotFoundException;
-import exception.DrugNotSavedException;
 import model.DosageForm;
 import model.Drug;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
-
 import java.util.List;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class DrugDAOTest {
-
     private DrugDAO drugDAO;
-
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -64,7 +59,7 @@ public class DrugDAOTest {
         try {
             drugDAO.save(drug);
         } catch (Exception e) {
-            assertEquals(e.getMessage(), new DrugNotSavedException().getMessage());
+            assertEquals(e.getClass(), new IllegalArgumentException().getClass());
         }
     }
 

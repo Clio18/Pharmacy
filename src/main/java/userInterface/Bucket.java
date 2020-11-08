@@ -1,11 +1,13 @@
 package userInterface;
-
 import model.Drug;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bucket {
-    private List<Drug> drugs;
+    private List<Drug> drugs = new ArrayList<>();
+
+    public Bucket() {
+    }
 
     public Bucket(List<Drug> drugs) {
         this.drugs = drugs;
@@ -17,5 +19,12 @@ public class Bucket {
 
     public void setDrugs(List<Drug> drugs) {
         this.drugs = drugs;
+    }
+
+    @Override
+    public String toString() {
+        return "Bucket{" +
+                "drugs=" + drugs +
+                '}';
     }
 }

@@ -1,6 +1,8 @@
 package userInterface;
 
-public class User {
+import java.util.Objects;
+
+public class User implements Cloneable {
     private String name;
     private String familyName;
     private String login;
@@ -8,6 +10,7 @@ public class User {
     private String email;
     private String address;
     private String phoneNumber;
+    private int id;
 
     public User(String name, String familyName, String login, String password, String email, String address, String phoneNumber) {
         this.name = name;
@@ -17,6 +20,10 @@ public class User {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.id = 0;
+    }
+
+    public User() {
     }
 
     public String getName() {
@@ -73,5 +80,53 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return getId() == user.getId() &&
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getFamilyName(), user.getFamilyName()) &&
+                Objects.equals(getLogin(), user.getLogin()) &&
+                Objects.equals(getPassword(), user.getPassword()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getAddress(), user.getAddress()) &&
+                Objects.equals(getPhoneNumber(), user.getPhoneNumber());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getName(), getFamilyName(), getLogin(), getPassword(), getEmail(), getAddress(), getPhoneNumber(), getId());
     }
 }

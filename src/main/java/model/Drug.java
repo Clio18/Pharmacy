@@ -7,7 +7,7 @@ public class Drug implements Cloneable {
     private String name;
     private Double price;
     private boolean available;
-    public DosageForm dosageForm;
+    private DosageForm dosageForm;
     private String manufacturer;
     private int id;
 
@@ -105,5 +105,18 @@ public class Drug implements Cloneable {
     public int hashCode() {
 
         return Objects.hash(getDescription(), getName(), getPrice(), isAvailable(), getDosageForm(), getManufacturer(), getId());
+    }
+
+    @Override
+    public String toString() {
+        return "Drug{" +
+                "description='" + description + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", available=" + available +
+                ", dosageForm=" + dosageForm +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
