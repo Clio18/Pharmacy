@@ -16,6 +16,7 @@ public class MainClass {
         pharmacy.addDrugToBucket(foundDrug);
         Bucket bucket = pharmacy.getBucket();
         System.out.println(bucket);
+        //bucket without cleaning function
 
         User user = new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044");
         pharmacy.addUser(user);
