@@ -6,6 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import userInterface.User;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -54,14 +55,10 @@ public class UserDAOTest {
         assertThat(userDAO.getAll().size(), is(2));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void whenAddNewDrugException() {
         User user = null;
-        try {
-            userDAO.save(user);
-        } catch (Exception e) {
-            assertEquals(e.getClass(), new IllegalArgumentException().getClass());
-        }
+        userDAO.save(user);
     }
 
 
@@ -85,14 +82,10 @@ public class UserDAOTest {
         assertEquals(userDAO.findById(saved.getId()).getName(), drugForUpdate.getName());
     }
 
-    @Test
+    @Test (expected = UserNotFoundException.class)
     public void whenUpdateDrugException() {
         User updatedUser = new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044");
-        try {
-            userDAO.update(updatedUser);
-        } catch (Exception e) {
-            assertEquals(e.getMessage(), new UserNotFoundException().getMessage());
-        }
+        userDAO.update(updatedUser);
     }
 
     @Test

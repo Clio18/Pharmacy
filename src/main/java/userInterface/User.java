@@ -20,7 +20,6 @@ public class User implements Cloneable {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.id = 0;
     }
 
     public User() {

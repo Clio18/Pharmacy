@@ -20,7 +20,6 @@ public class Drug implements Cloneable {
         this.available = available;
         this.dosageForm = dosageForm;
         this.manufacturer = manufacturer;
-        this.id = 0;
     }
 
     public Drug() {

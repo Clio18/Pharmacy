@@ -46,21 +46,17 @@ public class DrugDAOTest {
     }
 
     @Test
-    public void whenAddNewDrug() throws Exception {
+    public void whenAddNewDrug() {
         drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
         assertEquals(drugDAO.getAll().size(), 1);
         drugDAO.save(new Drug("D", "DD", 4.1, true, DosageForm.HARD_CAPSULE, "DDD"));
         assertThat(drugDAO.getAll().size(), is(2));
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void whenAddNewDrugException() {
         Drug drug = null;
-        try {
-            drugDAO.save(drug);
-        } catch (Exception e) {
-            assertEquals(e.getClass(), new IllegalArgumentException().getClass());
-        }
+        drugDAO.save(drug);
     }
 
 
@@ -84,14 +80,10 @@ public class DrugDAOTest {
         assertEquals(drugDAO.findById(saved.getId()).getName(), drugForUpdate.getName());
     }
 
-    @Test
+    @Test(expected = DrugNotFoundException.class)
     public void whenUpdateDrugException() {
         Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz");
-        try {
-            drugDAO.update(updatedDrug);
-        } catch (Exception e) {
-            assertEquals(e.getMessage(), new DrugNotFoundException().getMessage());
-        }
+        drugDAO.update(updatedDrug);
     }
 
     @Test

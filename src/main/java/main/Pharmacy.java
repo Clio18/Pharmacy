@@ -35,8 +35,8 @@ public class Pharmacy {
 
     }
 
-    public User findUserById(int i) {
-        return userService.findDrugById(i);
+    public User findUserById(int id) {
+        return userService.findDrugById(id);
     }
 
     public void createDrug(Drug drug) {
