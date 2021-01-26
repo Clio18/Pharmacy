@@ -31,7 +31,7 @@
        <form action="/login">
           <button type="submit" class="btn btn-primary">Login</button>
        </form>
-            <a href="/user_form" class="btn btn-primary" role="button">Registration</a>
+            <a href="/registration" class="btn btn-primary" role="button">Registration</a>
    </form>
        </body>
        </html>

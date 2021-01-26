@@ -1,6 +1,7 @@
 package filter;
 
 import service.UserService;
+import userInterface.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -16,7 +17,9 @@ public class InitAppListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext servletContext = sce.getServletContext();
-        servletContext.setAttribute(USER_SERVICE, new UserService());
+        UserService userService = new UserService();
+        //userService.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        servletContext.setAttribute(USER_SERVICE, userService);
     }
 
     @Override

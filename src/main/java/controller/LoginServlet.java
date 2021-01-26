@@ -1,5 +1,4 @@
 package controller;
-
 import service.UserService;
 import userInterface.User;
 
@@ -35,16 +34,13 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         User client = userService.findUserByLoginAndPassword(login, password);
 
-//        if (client == null) {
-//            req.getRequestDispatcher("login.jsp").forward(req, resp);
-//        } else if (client.getType().equals(Client.ADMIN)) {
-//            req.getSession().setAttribute("client", client);
-//            req.getRequestDispatcher("administrator.jsp").forward(req, resp);
-//        } else {
-//            req.getSession().setAttribute("username", client.getLogin());
-//            req.getSession().setAttribute("client", client);
-//            req.getRequestDispatcher("mainPage.jsp").forward(req, resp);
-//        }
+        if (client == null) {
+            req.getRequestDispatcher("login.jsp").forward(req, resp);
+        } else {
+            req.getSession().setAttribute("username", client.getLogin());
+            req.getSession().setAttribute("client", client);
+            req.getRequestDispatcher("simple.jsp").forward(req, resp);
+        }
 
     }
 }
