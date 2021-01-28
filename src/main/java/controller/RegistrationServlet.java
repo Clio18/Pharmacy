@@ -27,6 +27,10 @@ public class RegistrationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("registration.jsp").forward(req, resp);
+            }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("STAR");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
@@ -35,30 +39,12 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String address = req.getParameter("address");
         String phoneNumber = req.getParameter("phoneNumber");
-
         User client = new User(name,familyName,login,password,email,address,phoneNumber);
-        System.out.println(client.toString());
+        userService.save(client);
         req.getSession().setAttribute("client", client);
+        System.out.println("TO SHOW");
+        req.getRequestDispatcher("show.jsp").forward(req, resp);
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = (User)req.getSession().getAttribute("client");
-        userService.save(user);
-
-
-//        if (client == null) {
-//            req.getRequestDispatcher("login.jsp").forward(req, resp);
-//        } else {
-
-
-            //userService.save(client);
-            //req.getSession().setAttribute("username", client.getLogin());
-            System.out.println(userService.getAll().get(0).toString());
-            //req.getSession().setAttribute("client", client);
-            //req.getRequestDispatcher("simple.jsp").forward(req, resp);
-        //}
 
     }
 }

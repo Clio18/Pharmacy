@@ -17,17 +17,11 @@
  </head>
  <body>
 
-     <c:forEach var="num" items="${alertList}">
-          <tr>
-             <td>${num}</td><br>
-          </tr>
-      </c:forEach>
-
        <font size = '4' color = 'green'>
 Please fill the registration form:
        </font><br>
 
-       <form action = '/login' method = 'post'>
+       <form action = '/registration' method = 'post'>
 
      <table>
        <tr><td>Name: </td><td><input type='text' name='name' size='15'></td></tr>
