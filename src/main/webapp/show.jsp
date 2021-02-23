@@ -11,9 +11,17 @@
     <title>servlet</title>
 </head>
 <body>
-    <h1><strong>Hello Pharmacy!</strong></h1>
+    <h1><strong>Hello!</strong></h1>
     <form method = 'get'>
-                   <%=request.getSession().getAttribute("client").toString()%>
+                   <%=session.getAttribute("client").toString()%><br>
+/*cannot get any field from object in session even after cast to User*/
+                   <%=request.getParameter("login")%><br>
+                   <%=request.getParameter("password")%><br>
+                   <%=request.getParameter("name")%><br>
+                   <%=request.getParameter("familyName")%><br>
+                   <%=request.getParameter("email")%><br>
+                   <%=request.getParameter("address")%><br>
+                   <%=request.getParameter("phoneNumber")%><br>
             </form>
     <a href="/login" class="btn btn-primary" role="button">LOG IN</a>
 </body>

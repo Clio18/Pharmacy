@@ -1,3 +1,4 @@
+validation\ValidatorForApp.class
 controller\LoginServlet.class
 model\DosageForm.class
 service\DrugService.class
@@ -8,11 +9,15 @@ model\Order.class
 dao\DrugDAO.class
 filter\InitAppListener.class
 controller\HelloWorldServlet.class
+controller\ValidationServlet.class
 main\Pharmacy.class
 userInterface\User.class
 dao\Dao.class
+validation\DrugValidator.class
+validation\UserValidator.class
 dao\UserDAO.class
 exception\DrugNotFoundException.class
 model\Drug.class
 userInterface\Bucket.class
 exception\UserNotFoundException.class
+validation\Alerts.class
