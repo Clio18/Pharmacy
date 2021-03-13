@@ -20,7 +20,6 @@ public class User implements Cloneable {
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.id = 0;
     }
 
     public User() {
@@ -97,16 +96,14 @@ public class User implements Cloneable {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", familyName='" + familyName + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", id=" + id +
-                '}';
+        return "Name: " + name +
+                ", Family Name: " + familyName +
+                ", Login: " + login +
+                ", Password: " + password +
+                ", Email: " + email +
+                ", Address: " + address +
+                ", Phone Number: " + phoneNumber +
+                ", id: " + id;
     }
 
     @Override
