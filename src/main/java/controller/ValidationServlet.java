@@ -39,7 +39,7 @@ public class ValidationServlet extends HttpServlet {
         User user = (User) req.getAttribute("client");
         validator = new UserValidator();
         List<Alerts> alerts = validator.validate(user);
-
+//
         if (alerts.isEmpty()){
             req.getRequestDispatcher("simple.jsp").forward(req, resp);
             userService.save(user);
