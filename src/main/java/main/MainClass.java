@@ -9,8 +9,23 @@ import userInterface.User;
 public class MainClass {
     public static void main(String[] args) {
         Pharmacy pharmacy = new Pharmacy();
-        Drug drug = new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA");
-        Drug drug1 = new Drug("Ab", "AAb", 9.1, true, DosageForm.HARD_CAPSULE, "AAAb");
+        Drug drug = new Drug.Builder()
+        .withDescription("Aab")
+        .withName("Aa")
+        .withPrice(14.99)
+        .withDosageForm(DosageForm.HARD_CAPSULE)
+        .withManufacturer("Aaaa")
+        .withAvailable(false)
+        .build();
+
+        Drug drug1 = new Drug.Builder()
+                .withDescription("Ccc")
+                .withName("Ccccc")
+                .withPrice(100.99)
+                .withDosageForm(DosageForm.SOFT_CAPSULE)
+                .withManufacturer("Aaaad")
+                .withAvailable(true)
+                .build();
         pharmacy.createDrug(drug);
         pharmacy.createDrug(drug1);
 
@@ -23,7 +38,15 @@ public class MainClass {
         Bucket bucket = pharmacy.getBucket();
         System.out.println(bucket);
 
-        User user = new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044");
+        User user = new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build();
         pharmacy.addUser(user);
 
         User foundUser = pharmacy.findUserByLoginAndPassword("AAA", "AAAA");

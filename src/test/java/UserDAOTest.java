@@ -34,24 +34,72 @@ public class UserDAOTest {
 
     @Test
     public void whenReturnAll() {
-        userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
-        userDAO.save(new User("Ab", "AAb", "AAAb", "AAAAb", "@mailb", "street b", "0440"));
-        userDAO.save(new User("Ac", "AAc", "AAAc", "AAAAc", "@mailc", "street c", "04409"));
+        userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
+        userDAO.save(new User.Builder()
+                .withLogin("Ab")
+                .withPassword("AAb")
+                .withName("AAAb")
+                .withFamilyName("AAAAAb")
+                .withEmail("@mailb")
+                .withAddress("streetb")
+                .withPhoneNumber("044b")
+                .build());
+        userDAO.save(new User.Builder()
+                .withLogin("Ac")
+                .withPassword("AAc")
+                .withName("AAAc")
+                .withFamilyName("AAAAAc")
+                .withEmail("@mailc")
+                .withAddress("streetc")
+                .withPhoneNumber("044c")
+                .build());
         assertEquals(userDAO.getAll().size(), 3);
     }
 
     @Test
     public void whenFindUserById() {
-        User saved = userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        User saved = userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         assertEquals(userDAO.findById(saved.getId()).getName(), saved.getName());
         assertEquals(userDAO.findById(-1), null);
     }
 
     @Test
     public void whenAddNewUser() throws Exception {
-        userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         assertEquals(userDAO.getAll().size(), 1);
-        userDAO.save(new User("Ab", "AAb", "AAAb", "AAAAb", "@mailb", "street b", "0440"));
+        userDAO.save(new User.Builder()
+                .withLogin("Ab")
+                .withPassword("AAb")
+                .withName("AAAb")
+                .withFamilyName("AAAAAb")
+                .withEmail("@mailb")
+                .withAddress("streetb")
+                .withPhoneNumber("044b")
+                .build());
         assertThat(userDAO.getAll().size(), is(2));
     }
 
@@ -64,7 +112,15 @@ public class UserDAOTest {
 
     @Test
     public void whenDeleteUserById() {
-        User saved = userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        User saved = userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         boolean result = userDAO.delete(saved.getId());
         assertThat(userDAO.getAll().size(), is(0));
         assertEquals(result, true);
@@ -75,7 +131,15 @@ public class UserDAOTest {
 
     @Test
     public void whenUpdateUser() {
-        User saved = userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        User saved = userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         User drugForUpdate = userDAO.findByName(saved.getName());
         drugForUpdate.setName("Ola");
         userDAO.update(drugForUpdate);
@@ -84,19 +148,43 @@ public class UserDAOTest {
 
     @Test (expected = UserNotFoundException.class)
     public void whenUpdateDrugException() {
-        User updatedUser = new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044");
+        User updatedUser = new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build();
         userDAO.update(updatedUser);
     }
 
     @Test
     public void whenFindUserByName() {
-        User saved = userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        User saved = userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         assertEquals(userDAO.findByName(saved.getName()).getEmail(), saved.getEmail());
     }
 
     @Test
     public void whenFindUserByLoginAndPassword() {
-        User saved = userDAO.save(new User("A", "AA", "AAA", "AAAA", "@mail", "street", "044"));
+        User saved = userDAO.save(new User.Builder()
+                .withLogin("A")
+                .withPassword("AA")
+                .withName("AAA")
+                .withFamilyName("AAAAA")
+                .withEmail("@mail")
+                .withAddress("street")
+                .withPhoneNumber("044")
+                .build());
         String login = saved.getLogin();
         String password = saved.getPassword();
 

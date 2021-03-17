@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="243559c9-4d70-4ed6-8664-c121ae6a7c10" name="Default" comment="web pharmacy creation - validation" />
+    <list default="true" id="243559c9-4d70-4ed6-8664-c121ae6a7c10" name="Default" comment="web pharmacy creation - builder pattern">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Drug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Drug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userInterface/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userInterface/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/show.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DrugDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DrugDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/RegistrationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/RegistrationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Drug.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Drug.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/userInterface/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/userInterface/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DrugDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DrugDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/UserDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UserDAOTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/alerts_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/alerts_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/login_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/login_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/registration_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/registration_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/show_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/show_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/simple_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/simple_jsp.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +56,14 @@
         <entry key="$PROJECT_DIR$" value="test_creation" />
       </map>
     </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -158,6 +196,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowCommit.ShowToolbar" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -183,28 +223,41 @@
     </key>
   </component>
   <component name="RunManager" selected="Maven.pharma">
+    <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.MainClass" />
+      <module name="pharmClio" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DrugDAOTest.whenAddNewDrugException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pharmacy" />
+    <configuration name="DrugDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmClio" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DrugDAOTest" />
-      <option name="METHOD_NAME" value="whenAddNewDrugException" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DrugDAOTest.whenUpdateDrugException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pharmacy" />
+    <configuration name="DrugDAOTest.whenFindByPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pharmClio" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DrugDAOTest" />
-      <option name="METHOD_NAME" value="whenUpdateDrugException" />
+      <option name="METHOD_NAME" value="whenFindByPrice" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -216,17 +269,6 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UserDAOTest" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDAOTest.whenAddNewDrugException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Pharmacy" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UserDAOTest" />
-      <option name="METHOD_NAME" value="whenAddNewDrugException" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -312,20 +354,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.MainClass" />
       <item itemvalue="JUnit.UserDAOTest" />
-      <item itemvalue="JUnit.DrugDAOTest.whenAddNewDrugException" />
-      <item itemvalue="JUnit.DrugDAOTest.whenUpdateDrugException" />
-      <item itemvalue="JUnit.UserDAOTest.whenAddNewDrugException" />
       <item itemvalue="JUnit.UserDAOTest.whenUpdateDrugException" />
+      <item itemvalue="JUnit.DrugDAOTest" />
+      <item itemvalue="JUnit.DrugDAOTest.whenFindByPrice" />
       <item itemvalue="Maven.pharma" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DrugDAOTest.whenFindByPrice" />
+        <item itemvalue="JUnit.DrugDAOTest" />
+        <item itemvalue="Application.MainClass" />
         <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.UserDAOTest.whenUpdateDrugException" />
-        <item itemvalue="JUnit.UserDAOTest.whenAddNewDrugException" />
-        <item itemvalue="JUnit.DrugDAOTest.whenAddNewDrugException" />
-        <item itemvalue="JUnit.DrugDAOTest.whenUpdateDrugException" />
       </list>
     </recent_temporary>
   </component>
@@ -679,7 +721,50 @@
     <MESSAGE value="web pharmacy creation - registration servlet (doget/dopost)" />
     <MESSAGE value="web pharmacy creation - registration servlet (doget/dopost) v2" />
     <MESSAGE value="web pharmacy creation - validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="web pharmacy creation - validation" />
+    <MESSAGE value="web pharmacy creation - builder pattern" />
+    <option name="LAST_COMMIT_MESSAGE" value="web pharmacy creation - builder pattern" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/main/MainClass.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/validation/UserValidator.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/validation/UserValidator.java</url>
+          <line>10</line>
+          <properties class="validation.UserValidator" method="validate">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java</url>
+          <line>32</line>
+          <properties class="controller.RegistrationServlet" method="doPost">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="userInterface.User" memberName="password" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/model/DosageForm.java">

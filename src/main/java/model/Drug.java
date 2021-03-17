@@ -12,18 +12,18 @@ public class Drug implements Cloneable {
     private int id;
 
 
-    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
-
-        this.description = description;
-        this.name = name;
-        this.price = price;
-        this.available = available;
-        this.dosageForm = dosageForm;
-        this.manufacturer = manufacturer;
-    }
-
-    public Drug() {
-    }
+//    public Drug(String description, String name, Double price, boolean available, DosageForm dosageForm, String manufacturer) {
+//
+//        this.description = description;
+//        this.name = name;
+//        this.price = price;
+//        this.available = available;
+//        this.dosageForm = dosageForm;
+//        this.manufacturer = manufacturer;
+//    }
+//
+//    public Drug() {
+//    }
 
     public String getDescription() {
         return description;
@@ -81,6 +81,46 @@ public class Drug implements Cloneable {
         this.id = id;
     }
 
+    //        this.description = description;
+//        this.name = name;
+//        this.price = price;
+//        this.available = available;
+//        this.dosageForm = dosageForm;
+//        this.manufacturer = manufacturer;
+
+    public static class Builder{
+        Drug drug;
+        public Builder(){
+            drug = new Drug();
+        }
+        public Builder withName(String name){
+            drug.name=name;
+            return this;
+        }
+        public Builder withDescription(String description){
+            drug.description=description;
+            return this;
+        }
+        public Builder withPrice(Double price){
+            drug.price=price;
+            return this;
+        }
+        public Builder withAvailable(Boolean available){
+            drug.available=available;
+            return this;
+        }
+        public Builder withManufacturer(String manufacturer){
+            drug.manufacturer=manufacturer;
+            return this;
+        }
+        public Builder withDosageForm(DosageForm dosageForm){
+            drug.dosageForm=dosageForm;
+            return this;
+        }
+        public Drug build(){
+            return drug;
+        }
+    }
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();

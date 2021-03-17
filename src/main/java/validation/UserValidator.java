@@ -43,16 +43,4 @@ public class UserValidator implements ValidatorForApp<User> {
             alertsList.add(Alerts.WRONG_PHONE_NUMBER);
         }
     }
-
-//    public void showAlerts() {
-//        if (alertsList.isEmpty()) {
-//            System.out.println(validator.Alerts.GOOD.getValue());
-//        } else {
-//            for (validator.Alerts alerts : alertsList) {
-//                System.out.println(alerts.getValue());
-//            }
-//        }
- //   }
-
-
 }

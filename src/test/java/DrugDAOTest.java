@@ -32,24 +32,66 @@ public class DrugDAOTest {
 
     @Test
     public void whenReturnAll() {
-        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Ccc")
+                .withName("Ccc")
+                .withPrice(10.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(true)
+                .build());
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Aabb")
+                .withName("Aann")
+                .withPrice(1994.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("NNN")
+                .withAvailable(false)
+                .build());
         assertEquals(drugDAO.getAll().size(), 3);
     }
 
     @Test
     public void whenFindDrugById() {
-        Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        Drug saved = drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
         assertEquals(drugDAO.findById(saved.getId()).getName(), saved.getName());
         assertEquals(drugDAO.findById(-1), null);
     }
 
     @Test
     public void whenAddNewDrug() {
-        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
         assertEquals(drugDAO.getAll().size(), 1);
-        drugDAO.save(new Drug("D", "DD", 4.1, true, DosageForm.HARD_CAPSULE, "DDD"));
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Akkab")
+                .withName("Aa")
+                .withPrice(4.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("KKK")
+                .withAvailable(false)
+                .build());
         assertThat(drugDAO.getAll().size(), is(2));
     }
 
@@ -62,7 +104,14 @@ public class DrugDAOTest {
 
     @Test
     public void whenDeleteDrugById() {
-        Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        Drug saved = drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
         boolean result = drugDAO.delete(saved.getId());
         assertThat(drugDAO.getAll().size(), is(0));
         assertEquals(result, true);
@@ -73,7 +122,14 @@ public class DrugDAOTest {
 
     @Test
     public void whenUpdateDrug() {
-        Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        Drug saved = drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
         Drug drugForUpdate = drugDAO.findByName(saved.getName());
         drugForUpdate.setName("Ola");
         drugDAO.update(drugForUpdate);
@@ -82,22 +138,50 @@ public class DrugDAOTest {
 
     @Test(expected = DrugNotFoundException.class)
     public void whenUpdateDrugException() {
-        Drug updatedDrug = new Drug("Az", "AAz", 1.1, false, DosageForm.HARD_CAPSULE, "AAAz");
+        Drug updatedDrug = new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build();
         drugDAO.update(updatedDrug);
     }
 
     @Test
     public void whenFindDrugByName() {
-        Drug saved = drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
+        Drug saved = drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
         assertEquals(drugDAO.findByName(saved.getName()).getDescription(), saved.getDescription());
     }
 
 
     @Test
     public void whenFindByPrice() {
-        drugDAO.save(new Drug("A", "AA", 1.1, true, DosageForm.HARD_CAPSULE, "AAA"));
-        drugDAO.save(new Drug("Ann", "AAnnn", 1.5, true, DosageForm.HARD_CAPSULE, "AAA"));
-        List<Drug> found = drugDAO.findDrugsByPrice(1.0, 2.0);
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
+        drugDAO.save(new Drug.Builder()
+                .withDescription("Aab")
+                .withName("Aa")
+                .withPrice(14.99)
+                .withDosageForm(DosageForm.HARD_CAPSULE)
+                .withManufacturer("Aaaa")
+                .withAvailable(false)
+                .build());
+        List<Drug> found = drugDAO.findDrugsByPrice(1.0, 20.0);
         assertThat(found.size(), is(2));
     }
 }

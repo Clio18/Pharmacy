@@ -12,18 +12,18 @@ public class User implements Cloneable {
     private String phoneNumber;
     private int id;
 
-    public User(String name, String familyName, String login, String password, String email, String address, String phoneNumber) {
-        this.name = name;
-        this.familyName = familyName;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
-
-    public User() {
-    }
+//    public User(String name, String familyName, String login, String password, String email, String address, String phoneNumber) {
+//        this.name = name;
+//        this.familyName = familyName;
+//        this.login = login;
+//        this.password = password;
+//        this.email = email;
+//        this.address = address;
+//        this.phoneNumber = phoneNumber;
+//    }
+//
+//    public User() {
+//    }
 
     public String getName() {
         return name;
@@ -87,6 +87,49 @@ public class User implements Cloneable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static class Builder{
+        User user;
+        public Builder(){
+            user = new User();
+        }
+        public Builder withName(String name){
+            user.name=name;
+            return this;
+        }
+        public Builder withFamilyName(String familyName){
+            user.familyName=familyName;
+            return this;
+        }
+        public Builder withPassword(String password){
+            user.password=password;
+            return this;
+        }
+        public Builder withLogin(String login){
+            user.login=login;
+            return this;
+        }
+        public Builder withEmail(String email){
+            user.email=email;
+            return this;
+        }
+        public Builder withAddress(String address){
+            user.address=address;
+            return this;
+        }
+        public Builder withPhoneNumber(String phoneNumber){
+            user.phoneNumber=phoneNumber;
+            return this;
+        }
+        public Builder withId(Integer id){
+            user.id=id;
+            return this;
+        }
+        public User build(){
+            return user;
+        }
+
     }
 
     @Override

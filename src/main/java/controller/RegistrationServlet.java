@@ -31,8 +31,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("STAR");
-
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String name = req.getParameter("name");
@@ -40,10 +38,17 @@ public class RegistrationServlet extends HttpServlet {
         String email = req.getParameter("email");
         String address = req.getParameter("address");
         String phoneNumber = req.getParameter("phoneNumber");
-        User client = new User(name, familyName, login, password, email, address, phoneNumber);
-        //userService.save(client);
+        User client = new User.Builder()
+                .withLogin(login)
+                .withPassword(password)
+                .withName(name)
+                .withFamilyName(familyName)
+                .withEmail(email)
+                .withAddress(address)
+                .withPhoneNumber(phoneNumber)
+                .build();
+        userService.save(client);
         req.setAttribute("client", client);
-        //req.getSession().setAttribute("client", client);
         req.getRequestDispatcher("/validation").forward(req, resp);
     }
 }
