@@ -41,7 +41,7 @@ public class ValidationServlet extends HttpServlet {
 
         if (alerts.isEmpty()){
             req.getRequestDispatcher("simple.jsp").forward(req, resp);
-            userService.save(user);
+            //userService.save(user);
         }else {
             req.getSession().setAttribute("alerts", alerts);
             req.getRequestDispatcher("alerts.jsp").forward(req, resp);

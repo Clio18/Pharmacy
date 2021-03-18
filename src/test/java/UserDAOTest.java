@@ -62,6 +62,7 @@ public class UserDAOTest {
                 .withPhoneNumber("044c")
                 .build());
         assertEquals(userDAO.getAll().size(), 3);
+
     }
 
     @Test

@@ -8,32 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Drug.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Drug.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/userInterface/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userInterface/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/show.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/show.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DrugDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DrugDAOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/RegistrationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/RegistrationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Drug.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Drug.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/userInterface/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/userInterface/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/DrugDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DrugDAOTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/UserDAOTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/UserDAOTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/alerts_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/alerts_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/login_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/login_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/registration_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/registration_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/show_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/show_jsp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/simple_jsp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tmp/jsp/org/apache/jsp/simple_jsp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/ValidationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ValidationServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,10 +339,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.DrugDAOTest.whenFindByPrice" />
         <item itemvalue="JUnit.DrugDAOTest" />
         <item itemvalue="Application.MainClass" />
-        <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.UserDAOTest.whenUpdateDrugException" />
       </list>
     </recent_temporary>
@@ -607,7 +583,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615665716031</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="web pharmacy creation - builder pattern">
+      <created>1616016410111</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1616016410111</updated>
+    </task>
+    <task id="LOCAL-00034" summary="web pharmacy creation - builder pattern">
+      <created>1616016424805</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1616016424805</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -742,6 +732,11 @@
           <line>51</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dao/DrugDAO.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/validation/UserValidator.java</url>
           <line>10</line>
@@ -757,6 +752,14 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/dao/DrugDAO.java</url>
+          <line>15</line>
+          <properties class="dao.DrugDAO" method="save">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
