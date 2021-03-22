@@ -1,6 +1,6 @@
 package dao;
 import exception.UserNotFoundException;
-import userInterface.User;
+import model.User;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

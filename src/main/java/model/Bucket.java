@@ -1,4 +1,4 @@
-package userInterface;
+package model;
 import model.Drug;
 import java.util.ArrayList;
 import java.util.List;

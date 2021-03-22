@@ -1,7 +1,7 @@
 package controller;
 
 import service.UserService;
-import userInterface.User;
+import model.User;
 import validation.Alerts;
 import validation.UserValidator;
 import validation.ValidatorForApp;

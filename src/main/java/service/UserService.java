@@ -1,6 +1,6 @@
 package service;
 import dao.UserDAO;
-import userInterface.User;
+import model.User;
 import java.util.List;
 
 public class UserService {

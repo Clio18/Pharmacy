@@ -1,7 +1,6 @@
 package filter;
 
 import service.UserService;
-import userInterface.User;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;

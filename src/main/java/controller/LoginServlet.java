@@ -1,6 +1,6 @@
 package controller;
 import service.UserService;
-import userInterface.User;
+import model.User;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;

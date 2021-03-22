@@ -1,6 +1,4 @@
 package model;
-import userInterface.Bucket;
-import userInterface.User;
 
 public class Order {
 

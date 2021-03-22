@@ -6,10 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="243559c9-4d70-4ed6-8664-c121ae6a7c10" name="Default" comment="web pharmacy creation - builder pattern">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/RegistrationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ValidationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filter/InitAppListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filter/InitAppListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/Pharmacy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/Pharmacy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userInterface/Bucket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Bucket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userInterface/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validation/UserValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/UserDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/ValidationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/ValidationServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,9 +187,9 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="instant.run" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -198,7 +207,7 @@
       <recent name="dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.pharma">
+  <component name="RunManager" selected="Application.MainClass">
     <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.MainClass" />
       <module name="pharmClio" />
@@ -339,10 +348,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainClass" />
         <item itemvalue="JUnit.UserDAOTest" />
         <item itemvalue="JUnit.DrugDAOTest.whenFindByPrice" />
         <item itemvalue="JUnit.DrugDAOTest" />
-        <item itemvalue="Application.MainClass" />
         <item itemvalue="JUnit.UserDAOTest.whenUpdateDrugException" />
       </list>
     </recent_temporary>
@@ -597,7 +606,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616016424805</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="web pharmacy creation - builder pattern">
+      <created>1616102414248</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1616102414248</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -768,6 +784,10 @@
         <PinnedItemInfo parentTag="userInterface.User" memberName="password" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/model/DosageForm.java">

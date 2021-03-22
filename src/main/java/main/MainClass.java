@@ -3,8 +3,8 @@ package main;
 import model.DosageForm;
 import model.Drug;
 import model.Order;
-import userInterface.Bucket;
-import userInterface.User;
+import model.Bucket;
+import model.User;
 
 public class MainClass {
     public static void main(String[] args) {

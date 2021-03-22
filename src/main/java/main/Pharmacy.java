@@ -3,8 +3,8 @@ import model.Drug;
 import model.Order;
 import service.DrugService;
 import service.UserService;
-import userInterface.Bucket;
-import userInterface.User;
+import model.Bucket;
+import model.User;
 
 public class Pharmacy {
     private DrugService drugService = new DrugService();

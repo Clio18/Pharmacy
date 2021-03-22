@@ -1,4 +1,4 @@
-package userInterface;
+package model;
 
 import java.util.Objects;
 
